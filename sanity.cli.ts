@@ -3,13 +3,17 @@ import {defineCliConfig} from 'sanity/cli'
 export default defineCliConfig({
   api: {
     projectId: 'ce4wb46n',
-    dataset: 'production'
+    dataset: 'production',
   },
   deployment: {
-    /**
-     * Enable auto-updates for studios.
-     * Learn more at https://www.sanity.io/docs/studio/latest-version-of-sanity#k47faf43faf56
-     */
     autoUpdates: true,
+    appId: 'q1ha68wjvnlo6fqyiuty912j',
+  },
+  typegen: {
+    enabled: true,
+    path: '../csendhaboritas/src/**/*.{ts,tsx}',
+    schema: 'schema.json',
+    generates: '../csendhaboritas/sanity.types.ts',
+    overloadClientMethods: true,
   },
 })
