@@ -57,6 +57,15 @@ export const activitySchema = defineType({
       type: 'text',
       rows: 4,
     }),
+    defineField({
+      name: 'gallery',
+      title: 'Galéria – fotók',
+      type: 'array',
+      description:
+        'A programról készült fotók. Az archívum oldalon a program neve szerint szűrhetők.',
+      of: [{ type: 'image', options: { hotspot: true } }],
+      options: { layout: 'grid' },
+    }),
   ],
   preview: {
     select: { title: 'name', subtitle: 'day', media: 'image' },

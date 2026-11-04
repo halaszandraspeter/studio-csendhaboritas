@@ -182,6 +182,15 @@ export const bandSchema = defineType({
       title: 'Zene embed URL (Spotify / SoundCloud iframe src)',
       type: 'url',
     }),
+    defineField({
+      name: 'gallery',
+      title: 'Galéria – koncertfotók',
+      type: 'array',
+      description:
+        'A zenekar fellépéséről készült fotók. Az archívum oldalon a zenekar szerint szűrhetők.',
+      of: [{ type: 'image', options: { hotspot: true } }],
+      options: { layout: 'grid' },
+    }),
   ],
   preview: {
     select: { title: 'name', subtitle: 'day', media: 'bandLogoImage' },

@@ -109,6 +109,43 @@ export const eventSchema = defineType({
         'A főoldal hero szekciójában jelenik meg. Minden sor külön kiemelt sorként; üres sor térközt ad.',
     }),
     defineField({
+      name: 'archiveMode',
+      title: 'Archív mód',
+      type: 'string',
+      description:
+        'Automatikus: az utolsó nap után 7 nappal az oldal archív módra vált (Koncertek helyett aftermovie, Házirend helyett Archívum). A másik két opcióval kézzel felülírható.',
+      options: {
+        list: [
+          { title: 'Automatikus (dátum alapján)', value: 'auto' },
+          { title: 'Mindig élő mód', value: 'live' },
+          { title: 'Mindig archív mód', value: 'archive' },
+        ],
+        layout: 'radio',
+      },
+      initialValue: 'auto',
+    }),
+    defineField({
+      name: 'aftermovieUrl',
+      title: 'Aftermovie (YouTube link)',
+      type: 'url',
+      description:
+        'Sima YouTube link (pl. https://www.youtube.com/watch?v=… vagy https://youtu.be/…). Archív módban a főoldalon jelenik meg. Ha üres, a videó rész rejtve marad.',
+      validation: (Rule) =>
+        Rule.custom((url?: string) => {
+          if (!url) return true
+          return /(?:youtube\.com|youtu\.be)\//.test(url) ? true : 'Csak YouTube link adható meg.'
+        }),
+    }),
+    defineField({
+      name: 'gallery',
+      title: 'Galéria – hangulatfotók',
+      type: 'array',
+      description:
+        'Általános fotók (közönség, helyszín), amelyek nem egy zenekarhoz tartoznak. A zenekarok fotóit a zenekar dokumentumánál töltsd fel.',
+      of: [{ type: 'image', options: { hotspot: true } }],
+      options: { layout: 'grid' },
+    }),
+    defineField({
       name: 'ogImage',
       title: 'Megosztási kép (Open Graph)',
       type: 'image',
