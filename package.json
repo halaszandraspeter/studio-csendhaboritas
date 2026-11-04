@@ -1,33 +1,18 @@
 {
-  "name": "csendhaboritas",
+  "name": "csendhaboritas-blueprint",
   "private": true,
   "version": "1.0.0",
-  "main": "package.json",
   "license": "UNLICENSED",
+  "description": "Sanity Blueprint + Functions (deploy from here). Studio lives in ./studio.",
   "scripts": {
-    "build": "sanity build",
-    "deploy": "sanity deploy",
-    "deploy-graphql": "sanity graphql deploy",
-    "dev": "sanity dev",
-    "start": "sanity start",
-    "typegen": "sanity schemas extract --force && sanity typegen generate"
+    "blueprints:plan": "npx sanity@latest blueprints plan",
+    "blueprints:deploy": "npx sanity@latest blueprints deploy"
   },
-  "keywords": [
-    "sanity"
-  ],
   "dependencies": {
-    "@sanity/vision": "^6.11.0",
-    "react": "^19.2.4",
-    "react-dom": "^19.2.4",
-    "sanity": "^6.11.0",
-    "styled-components": "^6.1.18"
+    "@sanity/functions": "^1.7.1"
   },
   "devDependencies": {
     "@sanity/blueprints": "0.24.0",
-    "@sanity/eslint-config-studio": "^7",
-    "@sanity/functions": "^1.7.1",
-    "@types/react": "^19.2.14",
-    "eslint": "^10.8.1",
     "prettier": "^3.5",
     "typescript": "^5.8"
   },

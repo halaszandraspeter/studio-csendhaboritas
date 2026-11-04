@@ -6,7 +6,7 @@ export default defineBlueprint({
       name: 'vercel-deploy',
       event: {
         on: ['create', 'update', 'delete'],
-        filter: '_type in ["band", "event"]',
+        filter: '_type in ["band", "event", "activity"]',
       },
     }),
   ],

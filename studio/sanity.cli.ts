@@ -11,9 +11,9 @@ export default defineCliConfig({
   },
   typegen: {
     enabled: true,
-    path: '../csendhaboritas/src/**/*.{ts,tsx}',
+    path: '../../csendhaboritas/src/**/*.{ts,tsx}',
     schema: 'schema.json',
-    generates: '../csendhaboritas/sanity.types.ts',
+    generates: '../../csendhaboritas/sanity.types.ts',
     overloadClientMethods: true,
   },
 })
